@@ -75,10 +75,26 @@ Nós podemos divir os Patterns em 3 tipos bem definidos:
 
 ## Padrões de Criações
 
-Existem diversos padrões de criações, como por exemplo: **Factory Method, Abstract Factory, Builder, Prototype e Singleton**, porém, hoje nós iremos nos focar nos seguintes **Patterns:**
+Existem diversos padrões de criações, como por exemplo: **Factory Method, Abstract Factory, Builder, Prototype e Singleton.** 
 
 ---
 <!-- _class: invert -->
+
+## Padrões Estruturais
+
+Existem diversos padrões estruturais, como por exemplo: **Adapter, Bridge, Composite, Decorator, Facade entre outros.**
+
+---
+<!-- _class: invert -->
+
+## Padrões Comportamentais
+
+Existem diversos padrões comportamentais, como por exemplo: **Chain of Responsability, Command, Iterator, Observer, State, Strategy entre outros**
+
+---
+<!-- _class: invert -->
+
+# Padrão de Projeto Criacional
 
 ## Factory Method ou Método de Fábrica
 
@@ -260,6 +276,8 @@ object(Pizza)#3 (4) {
 ---
 <!-- _class: invert -->
 
+# Padrão de Projeto Criacional
+
 # Singleton
 
 ### Definição
@@ -319,7 +337,7 @@ Padrões comportamentais são voltados aos algoritmos e a designação de respon
 
 ---
 <!-- _class: invert -->
-
+# Padrão Comportamental
 # Strategy
 
 ### Definição
@@ -508,7 +526,7 @@ Os padrões estruturais explicam como montar objetos e classes em estruturas mai
 
 ---
 <!-- _class: invert -->
-
+# Padrão de Projeto Estrutural
 # Facade
 
 ### Definição
