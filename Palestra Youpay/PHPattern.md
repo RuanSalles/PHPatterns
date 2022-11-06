@@ -623,3 +623,10 @@ CompraFacade::finalizarCompra(10, 'Rua do cliente', 'zep do cliente', 'transport
 Pagamento de R$ 1200 com Cartão de Crédito
 */ 
 ~~~
+
+---
+<!-- _class: invert -->
+![bg 90% right](img/the-end.jpg)
+# Obrigado por assistir a palestra!
+
+- Repositório e Slides: https://github.com/RuanSalles/PHPatterns
