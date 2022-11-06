@@ -497,3 +497,129 @@ object(ContaCorrente)#2 (5) {
 Saldo da Conta Corrente é: 714
 */
 ~~~
+
+---
+<!-- _class: invert -->
+
+# Padrão de Projeto Estrutural
+
+### Definição
+Os padrões estruturais explicam como montar objetos e classes em estruturas maiores mas ainda mantendo essas estruturas flexíveis e eficientes.
+
+---
+<!-- _class: invert -->
+
+# Facade
+
+### Definição
+O Facade é um padrão de projeto estrutural que fornece uma interface simplificada para uma biblioteca, um framework, ou qualquer conjunto complexo de classes.
+
+---
+<!-- _class: invert -->
+
+# Exemplo Facade Pattern
+
+Classe Estoque
+~~~php
+<?php
+
+class Estoque
+{
+    public static function retornarPrecoDoProdutoPeloID($id){
+        if($id == 10){
+            return 1000;
+        }else{
+            return 0;
+        }
+    }
+}
+
+~~~
+
+---
+<!-- _class: invert -->
+
+Classe Pagamento
+
+~~~php
+<?php
+
+class Pagamento
+{
+    public static function pagarComCartao($valor){
+        echo "Pagamento de R$ $valor com Cartão de Crédito" . PHP_EOL;
+    }
+
+    public static function pagarComBoleto($valor){
+        echo "Pagamento de R$ $valor no Boleto Bancário" . PHP_EOL;
+    }
+}
+~~~
+
+---
+<!-- _class: invert -->
+
+Classe Entrega
+
+~~~php
+<?php
+
+class Entrega
+{
+    public $endereco;
+    public $cep;
+    public $transportadora;
+
+    public function calcularFrete(){
+        return 200;
+    }
+}
+~~~
+
+---
+<!-- _class: invert -->
+
+Implementação Facade
+
+~~~php
+<?php
+
+require "./Estoque.php";
+require "./Entrega.php";
+require "./Pagamento.php";
+
+class CompraFacade
+{
+    public static function finalizarCompra($idProduto,$endereco,$cep,$transportadora,$meioDePagamento){
+        $valorDoProduto = Estoque::retornarPrecoDoProdutoPeloID($idProduto);
+        $entrega = new Entrega();
+        $entrega->endereco = $endereco;
+        $entrega->cep = $cep;
+        $entrega->transportadora = $transportadora;
+        $valorDoFrete = $entrega->calcularFrete();
+        $valorTotal = $valorDoProduto + $valorDoFrete;
+        if($meioDePagamento == 1){
+            Pagamento::pagarComCartao($valorTotal);
+        }else{
+            Pagamento::pagarComBoleto($valorTotal);
+        }
+    }
+}
+~~~
+
+---
+<!-- _class: invert -->
+
+Utilizando a Facade
+
+~~~php
+<?php
+
+require "CompraFacade.php";
+
+CompraFacade::finalizarCompra(10, 'Rua do cliente', 'zep do cliente', 'transportadora', 1);
+
+/*
+Pagamento de R$ 1200 com Cartão de Crédito
+*/ 
+~~~
